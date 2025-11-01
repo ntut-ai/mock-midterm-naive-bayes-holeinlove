@@ -87,17 +87,17 @@ def calculate_class_probabilities(summaries, row):
 
 def nb_train(train_data):
     ### Uncomment two lines below and you will pass the train model unit test ###
-    # model = summarize_by_class(train_data)
-    # return model
-    return None
+    model = summarize_by_class(train_data)
+    return model
 
 #######
 # Complete this functions:
 # Predict the class for a given row
 #######
 def nb_predict(summaries, row):
-    
-    return 0
+    probabilities = calculate_class_probabilities(summaries, row)
+    best_label = max(probabilities, key=probabilities.get)
+    return best_label
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Naive Bayes Classifier")
